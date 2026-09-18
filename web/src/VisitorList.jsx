@@ -26,6 +26,8 @@ export default function VisitorList({ onRefresh }) {
       <table style={{ width: "100%", borderCollapse: "collapse" }}>
         <thead>
           <tr>
+            <th style={th}>SN</th>
+            <th style={th}>Id</th>
             <th style={th}>Name</th>
             <th style={th}>Company</th>
             <th style={th}>Host</th>
@@ -35,8 +37,10 @@ export default function VisitorList({ onRefresh }) {
           </tr>
         </thead>
         <tbody>
-          {visitors.map((v) => (
+          {visitors.map((v, i) => (
             <tr key={v.id}>
+              <td style={td}>{(page - 1) * 20 + i + 1}</td>
+              <td style={td}>{v.id}</td>
               <td style={td}>{v.full_name}</td>
               <td style={td}>{v.company_name}</td>
               <td style={td}>{v.host_name}</td>
